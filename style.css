@@ -1,0 +1,26 @@
+.centering {
+  text-align: center;
+}
+
+#TopOfTable {
+  bgcolor: "#EEEEEE";
+  colspan: "3";
+}
+
+#BlueBoxOne {
+  bgcolor: "#7EE5DA";
+  width: "37%"
+}
+
+#BlueBoxTwo {
+
+}
+
+#BlueBoxThree {
+
+}
+
+#TableSettings{
+  border: "0";
+  width: "90%";
+}
