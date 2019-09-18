@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.centeringWithFont {
+  text-align: center;
+  font-size: "-1";
+}
+
 #TopOfTable {
   bgcolor: "#EEEEEE";
   colspan: "3";
@@ -13,11 +18,11 @@
 }
 
 #BlueBoxTwo {
-
+  bgcolor: "#70CCC2";
 }
 
 #BlueBoxThree {
-
+  bgcolor: "#62B3AA";
 }
 
 #TableSettings{
