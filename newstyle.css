@@ -134,10 +134,16 @@ footer.blackoutline div {
   margin: auto;
   width: 300px;
 }
+#endText a {
+  text-decoration: underline;
+}
 #endText2 {
   display: block;
   margin: auto;
   width: 410px;
+}
+#endText2 a {
+  text-decoration: underline;
 }
 footer.blackoutline div#ending {
   text-align: center;
