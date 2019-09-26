@@ -57,6 +57,9 @@ a {
 header {
   width: 560px;
 }
+header span a:hover {
+  text-decoration: underline;
+}
 #topImage {
   height: 83;
   width: 185;
