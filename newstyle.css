@@ -134,7 +134,7 @@ footer.blackoutline div {
   margin: auto;
   width: 300px;
 }
-#endText a {
+#endText a:hover {
   text-decoration: underline;
 }
 #endText2 {
@@ -142,7 +142,7 @@ footer.blackoutline div {
   margin: auto;
   width: 410px;
 }
-#endText2 a {
+#endText2 a:hover {
   text-decoration: underline;
 }
 footer.blackoutline div#ending {
