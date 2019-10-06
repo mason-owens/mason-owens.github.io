@@ -19,7 +19,66 @@
         <ul id="aside">
           <li> <a href="NULL"> Archive </a> </li>
           <li> <a href="NULL"> What If? </a> </li>
-          <li> <a href="NULL"> Blag </a> </li>
+          <li> <a href="NULL"> Blag </a> </li><html>
+  <head>
+    <script src="javascript.js"></script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <main>
+    <!---->
+    <div>
+      <h1>XKCD Password Generator</h1>
+    </div>
+    <!---->
+    <div class="inputs">
+      <label for="min_wrd_len">Minimum Word Length</label>
+      <select id="min_wrd_len">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+      </select>
+    </div>
+    <!---->
+    <div class="inputs">
+      <label for="max_wrd_len">Maximum Word Length</label>
+      <select id="max_wrd_len">
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+      </select>
+    </div>
+    <!---->
+    <div class="inputs">
+      <label for="max_len">Maximum Length</label>
+      <input id="max_len">
+    </div>
+    <!---->
+    <div class="inputs">
+      <input type="checkbox" id="ez_type">Easy Typing (Switching Hands)
+    </div>
+    <!---->
+    <div class="inputs">
+      <input type="checkbox" id="num_sub">Number Substitutions
+    </div>
+    <!---->
+    <div class="inputs">
+      <button id="submit_btn" onclick="onClicky()">Submit</button>
+    </div>
+    <!---->
+    <div>
+      <h2>Possible Passwords</h2>
+    </div>
+    </main>
+    <div>
+      <table id="passwrd_tbl">
+      </table>
+    </div>
+</html>
+
           <li> <a href="NULL"> How To </a> </li>
           <li> <a href="NULL"> Store </a> </li>
           <li> <a href="NULL"> About </a> </li>
