@@ -1,0 +1,29 @@
+main {
+  margin: auto;
+  width: 27%;
+  text-align: center;
+}
+div {
+  margin-top: 10px;
+}
+select {
+  width: 250px;
+}
+input#max_len{
+  width: 250px;
+  text-align: right;
+}
+.inputs {
+  text-align: right;
+}
+table, td{
+  border: 1px solid black;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 90%;
+}
+td {
+  width: 20%
+}
