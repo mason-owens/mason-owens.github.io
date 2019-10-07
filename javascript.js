@@ -1,4 +1,6 @@
 function onClicky() {
+  document.querySelector("#passwrd_tbl").innerHTML = "";
+
   var mn_wrd_length = document.querySelector("#min_wrd_len").value;
   var mx_wrd_length = document.querySelector("#max_wrd_len").value;
   var mx_length = document.querySelector("#max_len").value;
@@ -25,142 +27,149 @@ function onClicky() {
     }
   }
 
+  var numPasswords = 0;
   var approve_length = approved_length_words.length;
   var ran_nums = new Array(4);
   var total_len;
-  while (1) {
-    for (var i=0; i < 5; i++) {
-      ran_nums[i] = Math.floor(Math.random() * approve_length);
-    }
-    listy[0] = approved_length_words[ran_nums[0]];
-    listy[1] = approved_length_words[ran_nums[1]];
-    listy[2] = approved_length_words[ran_nums[2]];
-    listy[3] = approved_length_words[ran_nums[3]];
-    total_len = listy[0].length + listy[1].length + listy[2].length + listy[3].length;
-    if (total_len <= mx_length && ez == false && sub == false) {
-      listy[4] = total_len;
-      break;
-    }
-    else if (total_len <= mx_length && ez == false && sub == true) {
-      for (var i=0; i < 4; i++) {
-        listy[i] = listy[i].replace("l","1");
-        listy[i] = listy[i].replace('e','3');
-        listy[i] = listy[i].replace('o','0');
-        listy[i] = listy[i].replace('g','6');
-        listy[i] = listy[i].replace('s','2');
-        listy[i] = listy[i].replace('b','8');
+  while (numPasswords != 10) {
+    while (1) {
+      for (var i=0; i < 5; i++) {
+        ran_nums[i] = Math.floor(Math.random() * approve_length);
       }
-      listy[4] = total_len;
-      break;
-    }
-    else if (total_len <= mx_length && ez == true && sub == false) {
-      var temp;
-      var fail = 1;
-      var side_flag;
-      for (var i=0; i<4; i++) {
-        temp = listy[i];
-        for (var c=0; c<temp.length; c++) {
-          if (i == 0 && c == 0) {
-            if (lhand.includes(temp[c])) {
-              side_flag = 1;
-            }
-            else {
-              side_flag = 0;
-            }
-          }
-          else {
-            if (side_flag == 1) {
-              if (rhand.includes(temp[c])) {
-                side_flag = 0;
-              }
-              else {
-                fail = 0;
-              }
-            }
-            else if (side_flag == 0) {
+      listy[0] = approved_length_words[ran_nums[0]];
+      listy[1] = approved_length_words[ran_nums[1]];
+      listy[2] = approved_length_words[ran_nums[2]];
+      listy[3] = approved_length_words[ran_nums[3]];
+      total_len = listy[0].length + listy[1].length + listy[2].length + listy[3].length;
+      if (total_len <= mx_length && ez == false && sub == false) {
+        listy[4] = total_len;
+        numPasswords++;
+        break;
+      }
+      else if (total_len <= mx_length && ez == false && sub == true) {
+        for (var i=0; i < 4; i++) {
+          listy[i] = listy[i].replace("l","1");
+          listy[i] = listy[i].replace('e','3');
+          listy[i] = listy[i].replace('o','0');
+          listy[i] = listy[i].replace('g','6');
+          listy[i] = listy[i].replace('s','2');
+          listy[i] = listy[i].replace('b','8');
+        }
+        listy[4] = total_len;
+        numPasswords++;
+        break;
+      }
+      else if (total_len <= mx_length && ez == true && sub == false) {
+        var temp;
+        var fail = 1;
+        var side_flag;
+        for (var i=0; i<4; i++) {
+          temp = listy[i];
+          for (var c=0; c<temp.length; c++) {
+            if (i == 0 && c == 0) {
               if (lhand.includes(temp[c])) {
                 side_flag = 1;
               }
               else {
-                fail = 0;
+                side_flag = 0;
+              }
+            }
+            else {
+              if (side_flag == 1) {
+                if (rhand.includes(temp[c])) {
+                  side_flag = 0;
+                }
+                else {
+                  fail = 0;
+                }
+              }
+              else if (side_flag == 0) {
+                if (lhand.includes(temp[c])) {
+                  side_flag = 1;
+                }
+                else {
+                  fail = 0;
+                }
               }
             }
           }
         }
+        if (fail == 1) {
+          listy[4] = total_len;
+          numPasswords++;
+          break;
+        }
       }
-      if (fail == 1) {
-        listy[4] = total_len;
-        break;
-      }
-    }
-    else if (total_len <= mx_length && ez == true && sub == true) {
-      for (var i=0; i < 4; i++) {
-        listy[i] = listy[i].replace("l","1");
-        listy[i] = listy[i].replace('e','3');
-        listy[i] = listy[i].replace('o','0');
-        listy[i] = listy[i].replace('g','6');
-        listy[i] = listy[i].replace('s','2');
-        listy[i] = listy[i].replace('b','8');
-      }
-      var temp;
-      var fail = 1;
-      var side_flag;
-      for (var i=0; i<4; i++) {
-        temp = listy[i];
-        for (var c=0; c<temp.length; c++) {
-          if (i == 0 && c == 0) {
-            if (lhand.includes(temp[c])) {
-              side_flag = 1;
-            }
-            else {
-              side_flag = 0;
-            }
-          }
-          else {
-            if (side_flag == 1) {
-              if (rhand.includes(temp[c])) {
-                side_flag = 0;
-              }
-              else {
-                fail = 0;
-              }
-            }
-            else if (side_flag == 0) {
+      else if (total_len <= mx_length && ez == true && sub == true) {
+        for (var i=0; i < 4; i++) {
+          listy[i] = listy[i].replace("l","1");
+          listy[i] = listy[i].replace('e','3');
+          listy[i] = listy[i].replace('o','0');
+          listy[i] = listy[i].replace('g','6');
+          listy[i] = listy[i].replace('s','2');
+          listy[i] = listy[i].replace('b','8');
+        }
+        var temp;
+        var fail = 1;
+        var side_flag;
+        for (var i=0; i<4; i++) {
+          temp = listy[i];
+          for (var c=0; c<temp.length; c++) {
+            if (i == 0 && c == 0) {
               if (lhand.includes(temp[c])) {
                 side_flag = 1;
               }
               else {
-                fail = 0;
+                side_flag = 0;
+              }
+            }
+            else {
+              if (side_flag == 1) {
+                if (rhand.includes(temp[c])) {
+                  side_flag = 0;
+                }
+                else {
+                  fail = 0;
+                }
+              }
+              else if (side_flag == 0) {
+                if (lhand.includes(temp[c])) {
+                  side_flag = 1;
+                }
+                else {
+                  fail = 0;
+                }
               }
             }
           }
         }
-      }
-      if (fail == 1) {
-        listy[4] = total_len;
-        break;
+        if (fail == 1) {
+          listy[4] = total_len;
+          numPasswords++;
+          break;
+        }
       }
     }
-  }
 
-  var tbl = document.querySelector("#passwrd_tbl");
-  var tr = document.createElement("tr");
-  tbl.appendChild(tr);
-  var td1 = document.createElement("td");
-  var td2 = document.createElement("td");
-  var td3 = document.createElement("td");
-  var td4 = document.createElement("td");
-  var td5 = document.createElement("td");
-  td1.innerHTML = listy[0];
-  td2.innerHTML = listy[1];
-  td3.innerHTML = listy[2];
-  td4.innerHTML = listy[3];
-  td5.innerHTML = listy[4];
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-  tr.appendChild(td4);
-  tr.appendChild(td5);
+    var tbl = document.querySelector("#passwrd_tbl");
+    var tr = document.createElement("tr");
+    tbl.appendChild(tr);
+    var td1 = document.createElement("td");
+    var td2 = document.createElement("td");
+    var td3 = document.createElement("td");
+    var td4 = document.createElement("td");
+    var td5 = document.createElement("td");
+    td1.innerHTML = listy[0];
+    td2.innerHTML = listy[1];
+    td3.innerHTML = listy[2];
+    td4.innerHTML = listy[3];
+    td5.innerHTML = listy[4];
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+  }
   return;
 
 
